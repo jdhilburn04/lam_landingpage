@@ -160,39 +160,64 @@
 <!-- ═══ CONTACT ════════════════════════════════════════════════════ -->
 <section class="contact" id="contact">
   <div class="wrap">
-    <div class="contact-inner">
-      <span class="eyebrow">Apply to Work With Us</span>
-      <h2 class="section-h2">Ready to Grow? Let's Talk.</h2>
-      <p class="contact-sub">Fill out the form below and we'll reach out within 24 hours.</p>
+    <div class="contact-inner" id="contact-inner">
 
-      <form class="contact-form card" id="contact-form" novalidate>
-        <div class="field">
-          <label for="name">Your Name</label>
-          <input type="text" id="name" name="name" placeholder="Jane Smith" required>
+      <!-- ── Step progress indicator ── -->
+      <div class="form-steps" id="form-steps">
+        <div class="step-item active" id="step-ind-1">
+          <span class="step-dot"></span>
+          <span class="step-label">Fill out the form</span>
         </div>
-        <div class="field">
-          <label for="business">Business Name or Service You're Interested In</label>
-          <input type="text" id="business" name="business" placeholder="Acme Plumbing / Paid Search" required>
+        <div class="step-divider"></div>
+        <div class="step-item" id="step-ind-2">
+          <span class="step-dot"></span>
+          <span class="step-label">Book a meeting</span>
         </div>
-        <div class="field">
-          <label for="message">Tell us about your business or what you're looking to solve</label>
-          <textarea id="message" name="message" rows="4" placeholder="We're a local franchise with 3 locations and we're struggling to generate leads online..."></textarea>
-        </div>
-        <div class="submit-row">
-          <button type="submit" class="btn btn-block">Submit My Application &rarr;</button>
-        </div>
-      </form>
-
-      <div class="form-success" id="form-success">
-        <h3>You're in.</h3>
-        <p>Thanks for reaching out. We'll be in touch within 24 hours.</p>
       </div>
 
-      <p class="contact-alt">
-        Prefer to book directly?
-        <a href="https://calendly.com/d-hilburn-localsearchmasters/lsm-paid-media-appointment"
-           target="_blank" rel="noopener">Schedule a call here &rarr;</a>
-      </p>
+      <!-- ── Step 1: Info form ── -->
+      <div id="form-step-1">
+        <span class="eyebrow">Apply to Work With Us</span>
+        <h2 class="section-h2">Ready to Grow? Let's Talk.</h2>
+        <p class="contact-sub">Tell us about your business, then book a time to connect.</p>
+
+        <form class="contact-form card" id="contact-form" novalidate>
+          <div class="field-row">
+            <div class="field">
+              <label for="first-name">First Name *</label>
+              <input type="text" id="first-name" name="first-name" placeholder="Jane" required>
+            </div>
+            <div class="field">
+              <label for="last-name">Last Name *</label>
+              <input type="text" id="last-name" name="last-name" placeholder="Smith" required>
+            </div>
+          </div>
+          <div class="field">
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" name="phone" placeholder="+1 (555) 000-0000">
+          </div>
+          <div class="field">
+            <label for="business">Business Name or Service You're Interested In</label>
+            <input type="text" id="business" name="business" placeholder="Acme Plumbing / Paid Search" required>
+          </div>
+          <div class="field">
+            <label for="message">Tell us about your business or what you're looking to solve</label>
+            <textarea id="message" name="message" rows="4" placeholder="We're a local franchise with 3 locations and we're struggling to generate leads online..."></textarea>
+          </div>
+          <div class="submit-row">
+            <button type="submit" class="btn btn-block">Continue &rsaquo;</button>
+          </div>
+        </form>
+      </div>
+
+      <!-- ── Step 2: Calendar booking ── -->
+      <div id="form-step-2" class="booking-step">
+        <span class="eyebrow">Book a Meeting</span>
+        <h2 class="section-h2">Pick a Time That Works for You</h2>
+        <p class="contact-sub">Choose a slot below and we'll confirm your strategy call.</p>
+        <div class="calendly-embed" id="calendly-embed"></div>
+      </div>
+
     </div>
   </div>
 </section>

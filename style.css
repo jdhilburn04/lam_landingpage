@@ -453,6 +453,10 @@ a { text-decoration: none; color: inherit; }
   max-width: 560px;
   margin: 0 auto;
   text-align: center;
+  transition: max-width 0.3s ease;
+}
+.contact-inner.is-booking {
+  max-width: 900px;
 }
 .contact-inner h2 { margin-bottom: 12px; }
 .contact-sub {
@@ -460,6 +464,79 @@ a { text-decoration: none; color: inherit; }
   color: var(--muted);
   line-height: 1.75;
   margin-bottom: 40px;
+}
+
+/* step progress */
+.form-steps {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  margin-bottom: 40px;
+}
+.step-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+.step-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  transition: background 0.3s, border-color 0.3s;
+}
+.step-item.active .step-dot {
+  background: var(--yellow);
+  border-color: var(--yellow);
+  box-shadow: 0 0 10px rgba(255, 196, 1, 0.5);
+}
+.step-item.done .step-dot {
+  background: rgba(255, 196, 1, 0.4);
+  border-color: var(--yellow);
+}
+.step-label {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--fg-muted);
+  white-space: nowrap;
+  transition: color 0.3s;
+}
+.step-item.active .step-label { color: #fff; }
+.step-divider {
+  flex: 1;
+  height: 1px;
+  min-width: 60px;
+  background: rgba(255, 255, 255, 0.15);
+  margin: 0 16px;
+  margin-bottom: 20px;
+}
+
+/* two-column field row */
+.field-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin-bottom: 0;
+}
+.field-row .field { margin-bottom: 0; }
+
+/* calendly embed */
+.booking-step { display: none; }
+.calendly-embed {
+  width: 100%;
+  min-height: 650px;
+  border-radius: var(--radius);
+  overflow: hidden;
+  margin-top: 32px;
+}
+.calendly-embed iframe {
+  width: 100%;
+  height: 650px;
+  border: none;
+  border-radius: var(--radius);
 }
 .contact-form {
   background: var(--card);
@@ -637,6 +714,7 @@ footer {
   .process-grid  { grid-template-columns: 1fr; }
   .services-grid { grid-template-columns: 1fr; }
   .contact-form  { padding: 28px 20px; }
+  .field-row     { grid-template-columns: 1fr; }
   .btn-pill      { padding: 15px 30px; font-size: 0.95rem; }
 
   /* marquee: stack heading above logos, no overlay */
