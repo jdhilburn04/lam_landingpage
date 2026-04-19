@@ -147,13 +147,9 @@ a { text-decoration: none; color: inherit; }
 
 /* ── TICKER ─────────────────────────────────────────────────── */
 .ticker {
-  position: fixed;
-  top: 66px;
-  left: 0;
-  right: 0;
-  z-index: 190;
   height: 42px;
   background: var(--card);
+  border-top: 1px solid var(--border);
   border-bottom: 1px solid var(--border);
   overflow: hidden;
   display: flex;
@@ -191,7 +187,7 @@ a { text-decoration: none; color: inherit; }
 
 /* ── HERO ───────────────────────────────────────────────────── */
 .hero {
-  padding: 190px 0 110px;
+  padding: 90px 0 52px;
   text-align: center;
   position: relative;
   overflow: hidden;
@@ -207,20 +203,20 @@ a { text-decoration: none; color: inherit; }
   pointer-events: none;
 }
 .hero h1 {
-  font-size: clamp(2.6rem, 6.5vw, 4.8rem);
+  font-size: clamp(1.9rem, 3.6vw, 3.1rem);
   font-weight: 800;
-  line-height: 1.08;
-  letter-spacing: -0.035em;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
   color: #fff;
-  max-width: 720px;
-  margin: 0 auto 22px;
+  max-width: 960px;
+  margin: 0 auto 14px;
 }
 .hero-sub {
-  font-size: 1.08rem;
+  font-size: 1rem;
   color: var(--muted);
   max-width: 500px;
-  margin: 0 auto 40px;
-  line-height: 1.78;
+  margin: 0 auto 24px;
+  line-height: 1.7;
 }
 .hero-cta {
   display: flex;
@@ -232,7 +228,7 @@ a { text-decoration: none; color: inherit; }
 
 /* ── VIDEO ──────────────────────────────────────────────────── */
 .video-section {
-  padding: 24px 0 110px;
+  padding: 24px 0 80px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -240,14 +236,15 @@ a { text-decoration: none; color: inherit; }
 .video-card {
   width: 100%;
   max-width: 860px;
+  max-height: 300px;
   aspect-ratio: 16 / 9;
   background: var(--card);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 22px;
-  margin-bottom: 44px;
+  gap: 16px;
+  margin: 20px auto 20px;
   position: relative;
   overflow: hidden;
   cursor: pointer;
@@ -565,6 +562,60 @@ footer {
 }
 .social:hover { color: #fff; border-color: var(--border-mid); }
 
+/* ── LOGO MARQUEE ───────────────────────────────────────────── */
+.marquee-section {
+  padding: 64px 0;
+  overflow: hidden;
+  background: #fff;
+  position: relative;
+}
+.marquee-heading-wrap {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  white-space: nowrap;
+  pointer-events: none;
+}
+.marquee-heading {
+  font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+  font-weight: 800;
+  letter-spacing: -0.028em;
+  line-height: 1.15;
+  color: var(--yellow);
+}
+.marquee {
+  overflow: hidden;
+  /* left edge fade → visible → wide fade into heading → hidden center → visible → right edge fade */
+  mask-image: linear-gradient(to right, transparent 0%, black 8%, black 22%, transparent 36%, transparent 64%, black 78%, black 92%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 8%, black 22%, transparent 36%, transparent 64%, black 78%, black 92%, transparent 100%);
+}
+.marquee-track {
+  display: flex;
+  align-items: center;
+  gap: 64px;
+  width: max-content;
+  animation: marquee-scroll 36s linear infinite;
+  will-change: transform;
+}
+.marquee:hover .marquee-track {
+  animation-play-state: paused;
+}
+@keyframes marquee-scroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+.marquee-logo {
+  height: 44px;
+  width: auto;
+  flex-shrink: 0;
+  object-fit: contain;
+  opacity: 0.85;
+  transition: opacity 0.2s;
+}
+.marquee:hover .marquee-logo { opacity: 1; }
+
 /* ── RESPONSIVE ─────────────────────────────────────────────── */
 @media (max-width: 960px) {
   .problem-grid  { grid-template-columns: 1fr; }
@@ -573,7 +624,7 @@ footer {
   .services-grid { grid-template-columns: repeat(2, 1fr); }
 }
 @media (max-width: 640px) {
-  .hero          { padding: 160px 0 80px; }
+  .hero          { padding: 86px 0 40px; }
   .wrap          { padding: 0 20px; }
   .nav-inner     { padding: 0 20px; }
   .footer-inner  { padding: 0 20px; flex-direction: column; align-items: flex-start; }
