@@ -211,6 +211,12 @@ a { text-decoration: none; color: inherit; }
   max-width: 960px;
   margin: 0 auto 14px;
 }
+.h1-glow {
+  color: var(--yellow);
+  text-shadow:
+    0 0 24px rgba(255, 196, 1, 0.7),
+    0 0 60px rgba(255, 196, 1, 0.35);
+}
 .hero-sub {
   font-size: 1rem;
   color: var(--muted);
@@ -287,7 +293,7 @@ a { text-decoration: none; color: inherit; }
 
 /* ── PROBLEM ────────────────────────────────────────────────── */
 .problem {
-  background: var(--card);
+  background: #023047;
   border-top: 1px solid var(--border);
   border-bottom: 1px solid var(--border);
   padding: 100px 0;
@@ -303,7 +309,7 @@ a { text-decoration: none; color: inherit; }
   margin-bottom: 48px;
 }
 .problem-card {
-  background: #022b40;
+  background: var(--card);
   padding: 36px 30px;
 }
 .card-icon {
