@@ -119,10 +119,10 @@ a { text-decoration: none; color: inherit; }
   height: 66px;
   display: flex;
   align-items: center;
-  background: rgba(2, 48, 71, 0.92);
+  background: rgba(255, 255, 255, 0.97);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
-  border-bottom: 1px solid var(--border);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
 }
 .nav-inner {
   max-width: var(--w);
@@ -137,6 +137,7 @@ a { text-decoration: none; color: inherit; }
 .nav-logo {
   display: flex;
   align-items: center;
+  color: #023047;
 }
 .nav-logo img {
   height: 32px;
